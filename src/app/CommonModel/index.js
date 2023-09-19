@@ -3,10 +3,10 @@
 import { Dialog, Transition } from "@headlessui/react"
 import { Fragment } from "react"
 
-export default function CommonModel({modelTitle,mainContent,showButtons,buttonComponent,show,setShow}){
+export default function CommonModel({modelTitle,mainContent,showButtons,buttonComponent,show,setShow,showModelTitle}){
     return(
         <Transition.Root show={show} as={Fragment}>
-            <Dialog as="div"  className={'relative z-10'}>
+            <Dialog as="div"  className={'relative z-10'} onClose={setShow}>
                 <Transition.Child as={Fragment} enter="ease-in-out duration-900"
                 enterFrom="opacity-0"
                 enterTo="opacity-100"
@@ -26,11 +26,13 @@ export default function CommonModel({modelTitle,mainContent,showButtons,buttonCo
                                     <Dialog.Panel className={'w-screen max-w-md'}>
                                         <div className="flex h-full overflow-y-scroll bg-white shadow-xl">
                                             <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                                                <div className="flex items-start justify-between">
+                                                {
+                                                    showModelTitle? <div className="flex items-start justify-between">
                                                     <Dialog.Title>{modelTitle}</Dialog.Title>
-
                                                 </div>
-                                                <div className="mt-8">
+                                                :null
+                                                }
+                                                <div className="mt-20">
                                                     {mainContent}
                                                 </div>
                                             </div>
