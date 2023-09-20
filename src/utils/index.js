@@ -1,3 +1,5 @@
+import { expression } from "joi";
+
 export const navOptions = [
     {
       id: "home",
@@ -79,4 +81,22 @@ export const navOptions = [
         }
       ]
     }
+  ];
+
+
+  export const loginFormControls=[
+    {
+      id:'email',
+      type:'email',
+      placeholder:'Enter your email',
+      label:'Email',
+      componentTyle:'input'
+    },
+    {
+      id:'password',
+      type:'password',
+      placeholder:'Enter your password',
+      label:'Password',
+      componentTyle:'input'
+    },
   ]
